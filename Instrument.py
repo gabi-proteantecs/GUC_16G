@@ -1088,7 +1088,7 @@ class D2D_Subprogram:
         rm = pyvisa.ResourceManager()
         DPO72504C = rm.open_resource(visa)
         Save_png_command = (
-            "EXPort:FILEName 'C:\\\Test Waveform\\" + File_name + ".png';:EXPort STAR"
+            "EXPort:FILEName 'C:\\Test Waveform\\" + File_name + ".png';:EXPort STAR"
         )
         DPO72504C.write("DISplay:PERSistence:RESET")
         time.sleep(120)
