@@ -327,7 +327,7 @@ class Graph:
         xl.Visible = True  # otherwise excel is hidden
 
         # newest excel does not accept forward slash in path
-        wb = xl.Workbooks.Open("\Test Report(EY0012A).xlsx")
+        wb = xl.Workbooks.Open("\\Test Report(EY0012A).xlsx")
         wb.Close()
         xl.Quit()
 
@@ -349,7 +349,7 @@ class Graph:
                 f.write("")
                 f.close()
 
-            wb = openpyxl.load_workbook("Test Report\Test Report.xlsx")
+            wb = openpyxl.load_workbook("Test Report\\Test Report.xlsx")
             sh = wb["IPXACT"]
 
             # check excel register row number
@@ -1454,10 +1454,10 @@ class Graph:
 
         png_name = self.gui.vco_graph_name.Value
 
-        Txt_Data = open(r"TestTools(EY0012A)\Test_Graph_Log.txt")
+        Txt_Data = open(r"TestTools(EY0012A)\\Test_Graph_Log.txt")
         txt_lines_num = len(Txt_Data.readlines()) - 1
         # print(txt_lines_num)
-        Txt_Data = open(r"TestTools(EY0012A)\Test_Graph_Log.txt")
+        Txt_Data = open(r"TestTools(EY0012A)\\Test_Graph_Log.txt")
         text = []
         for line in Txt_Data:
             text.append(line)
@@ -1944,10 +1944,10 @@ class Graph:
 
         # Test_Report_Log.txt
         # Graph_File_Name: Test
-        # C:\Users\Vince\Desktop\Python\Test Report\Test Waveform\Slew_Reg = 00.txt
-        # C:\Users\Vince\Desktop\Python\Test Report\Test Waveform\Slew_Reg = 01.txt
-        # C:\Users\Vince\Desktop\Python\Test Report\Test Waveform\Slew_Reg = 02.txt
-        # C:\Users\Vince\Desktop\Python\Test Report\Test Waveform\Slew_Reg = 03.txt
+        # C:\Users\Vince\Desktop\Python\\Test Report\\Test Waveform\Slew_Reg = 00.txt
+        # C:\Users\Vince\Desktop\Python\\Test Report\\Test Waveform\Slew_Reg = 01.txt
+        # C:\Users\Vince\Desktop\Python\\Test Report\\Test Waveform\Slew_Reg = 02.txt
+        # C:\Users\Vince\Desktop\Python\\Test Report\\Test Waveform\Slew_Reg = 03.txt
 
         fig = plt.figure()
         ax = fig.add_axes([0.25, 0.25, 0.5, 0.5])  # Graph picture position and size

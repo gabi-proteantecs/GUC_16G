@@ -825,7 +825,7 @@ class UCIe_2p5D:
             Report_time = datetime.datetime.now()
             Report_time = ((str(Report_time)).replace(":", "-"))[0:19]
             Log_Folder_path = (
-                "Test Report\Test Report Log\CPM_"
+                "Test Report\\Test Report Log\CPM_"
                 + chip_num
                 + "_"
                 + str(TestTemp)

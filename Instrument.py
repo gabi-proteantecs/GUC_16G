@@ -826,7 +826,7 @@ class D2D_Subprogram:
         return result
 
     def xls_write_register(self, sheet_name, Test_Result):
-        excel_path = "Test Report\Test Report.xlsx"
+        excel_path = "Test Report\\Test Report.xlsx"
 
         Excel_Path = load_workbook(filename=excel_path)
         Select_sheet = Excel_Path[sheet_name]
@@ -873,7 +873,7 @@ class D2D_Subprogram:
         col = kargs.get("col", "NA")
         Hyperlink_path = kargs.get("Hyperlink_path", "NA")
 
-        excel_path = "Test Report\Test Report.xlsx"
+        excel_path = "Test Report\\Test Report.xlsx"
         sheet_name = "Test Result"
 
         Excel_Path = load_workbook(filename=excel_path)
@@ -898,7 +898,7 @@ class D2D_Subprogram:
         Die1_8s_H = kargs.get("Die1_8s_H", 0)
         Die2_8s_H = kargs.get("Die2_8s_H", 0)
         Die3_8s_H = kargs.get("Die3_8s_H", 0)
-        excel_path = "Test Report\Test Report.xlsx"
+        excel_path = "Test Report\\Test Report.xlsx"
 
         "close excel.exe"
         command = "taskkill /f /t /im EXCEL.exe"
@@ -1088,7 +1088,7 @@ class D2D_Subprogram:
         rm = pyvisa.ResourceManager()
         DPO72504C = rm.open_resource(visa)
         Save_png_command = (
-            "EXPort:FILEName 'C:\\Test Waveform\\" + File_name + ".png';:EXPort STAR"
+            "EXPort:FILEName 'C:\\\Test Waveform\\" + File_name + ".png';:EXPort STAR"
         )
         DPO72504C.write("DISplay:PERSistence:RESET")
         time.sleep(120)

@@ -129,7 +129,7 @@ class MainFrame(gui.MainFrame):
         ip_num = self.ip_version_wx.GetSelection()
         self.spec_version = ip_list[ip_num]
 
-        self.xls_report_path = "Test Report\Test Report EZ0005A.xlsx"
+        self.xls_report_path = "Test Report\\Test Report EZ0005A.xlsx"
 
         self.info_window_wx.Selection = 1
         self.m_richText1.Clear()
@@ -555,7 +555,7 @@ class MainFrame(gui.MainFrame):
         self.info_window_wx.Selection = buffer
 
     def Register_init(self):
-        xls = pd.ExcelFile("Test Report\Test Report EZ0005A.xls")
+        xls = pd.ExcelFile("Test Report\\Test Report EZ0005A.xls")
 
         # load PLL Register Setup in excel
         df = xls.parse(self.sheet_num)
@@ -864,7 +864,7 @@ class MainFrame(gui.MainFrame):
         self.m_textCtrl9.Value = "Test Done"
 
         # # for tsmc demo use
-        # path = 'C:/Users\GUC\Desktop\D2D AutoTest V01.01_Beta20250328\Test Report\Test Report Log\Demo.txt'
+        # path = 'C:/Users\GUC\Desktop\D2D AutoTest V01.01_Beta20250328\\Test Report\\Test Report Log\Demo.txt'
         # textfile = open(path , "a+")
         # textfile.write(self.m_richText1.Value + i2c_log )
         # textfile.close()
@@ -874,7 +874,7 @@ class MainFrame(gui.MainFrame):
         # textfile.write('')
         #
         # f = open(
-        #     'Test Report\Test Report Log/Demo.txt','r')
+        #     'Test Report\\Test Report Log/Demo.txt','r')
         # log = (f.read())
         # log_arr = log.split('\n')
         #
