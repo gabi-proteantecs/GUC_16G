@@ -9,12 +9,11 @@ Author: Generated for UCIe Test System
 Date: 2025
 """
 
-import datetime
 import sys
-import time
-
-from Glink_phy import Glink_phy
-from Glink_Top import UCIe_2p5D
+import datetime
+from Glink_run import UCIe_2p5D
+from Glink_phy import UCIe_2p5D as Glink_phy
+from Raspberry_Pico import Pico
 
 
 class ProteantecsTestRunner:
@@ -33,9 +32,14 @@ class ProteantecsTestRunner:
         # Create a minimal GUI object for compatibility (without displaying)
         self.gui = self.create_minimal_gui()
 
+        # Initialize real I2C and JTAG objects
+        print("Initializing I2C Communication...")
+        self.i2c = Pico("7-bit")  # Real Raspberry Pi Pico I2C
+        self.jtag = None  # JTAG not used in this system
+
         # Initialize physical layer
         print("Initializing Physical Layer...")
-        self.phy = Glink_phy(self.gui)
+        self.phy = Glink_phy(self.gui, self.i2c, self.jtag)
 
         # Initialize main test controller
         print("Initializing Test Controller...")
@@ -421,7 +425,7 @@ class ProteantecsTestRunner:
 
             # Run Proteantecs test on all dies
             print("Starting Proteantecs test on all dies...")
-            hex_results = self.run_proteantecs_all_dies()
+            self.run_proteantecs_all_dies()
 
             print("=" * 60)
             print("TEST COMPLETED SUCCESSFULLY")
