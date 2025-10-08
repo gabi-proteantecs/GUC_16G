@@ -44,6 +44,7 @@ class ProteantecsTestSystem:
         # Initialize system components in the correct order
         self._initialize_gui_mock()
         self._initialize_i2c_communication()
+        self._initialize_jtag()
         self._initialize_instrument_control()
         self._initialize_physical_layer()
         self._initialize_test_controller()
@@ -129,9 +130,17 @@ class ProteantecsTestSystem:
             logger.error("   ✗ Cannot proceed without I2C communication")
             raise
 
+    def _initialize_jtag(self):
+        """Initialize JTAG (set to None as in GUI system)"""
+        logger.info("Step 3: Initializing JTAG...")
+
+        self.jtag = None  # JTAG not used in this system
+        logger.info("   ✓ JTAG initialized (set to None)")
+        logger.info("   ✓ JTAG not required for this system")
+
     def _initialize_instrument_control(self):
         """Initialize instrument control (VISA)"""
-        logger.info("Step 3: Initializing Instrument Control...")
+        logger.info("Step 4: Initializing Instrument Control...")
 
         try:
             self.visa = D2D_Subprogram(self.gui)
@@ -144,7 +153,7 @@ class ProteantecsTestSystem:
 
     def _initialize_physical_layer(self):
         """Initialize physical layer (Glink_phy)"""
-        logger.info("Step 4: Initializing Physical Layer...")
+        logger.info("Step 5: Initializing Physical Layer...")
 
         try:
             # Initialize physical layer with correct parameters
@@ -158,7 +167,7 @@ class ProteantecsTestSystem:
 
     def _initialize_test_controller(self):
         """Initialize test controller (Glink_run)"""
-        logger.info("Step 5: Initializing Test Controller...")
+        logger.info("Step 6: Initializing Test Controller...")
 
         try:
             # Initialize test controller with physical layer and GUI
