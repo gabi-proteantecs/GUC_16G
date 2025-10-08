@@ -754,7 +754,7 @@ class UCIe_2p5D:
         chip_num = "LD01"
         TestDataRate = 17.2
         Chip_Mode = ""
-        Log_File_Name = "test report"
+        Log_File_Name = "Test_Report"
 
         start_time = datetime.datetime.now()
         print(start_time, flush=True)
@@ -825,7 +825,7 @@ class UCIe_2p5D:
             Report_time = datetime.datetime.now()
             Report_time = ((str(Report_time)).replace(":", "-"))[0:19]
             Log_Folder_path = (
-                "Test Report\\Test Report Log\\CPM_"
+                "Test_Report\\Test_Report Log\\CPM_"
                 + chip_num
                 + "_"
                 + str(TestTemp)

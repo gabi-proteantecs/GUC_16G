@@ -93,7 +93,7 @@ class MainFrame(gui.MainFrame):
         self.tools_path = os.path.dirname(os.path.abspath(__file__))
 
         # Load pll map for gui tree use
-        # dirPath = r"Test Report\Register Map\PLL_Map"
+        # dirPath = r"Test_Report\Register Map\PLL_Map"
         # result = (next(os.walk(dirPath))[2])[0]
         # self.pll_map_path = f'{dirPath}/{result}'
         # load pll map sheet name
@@ -102,7 +102,7 @@ class MainFrame(gui.MainFrame):
         # self.pll_sheet_name_tree.SetItems(sheet)
 
         # Load slice map for gui tree use
-        # dirPath = r"Test Report\Register Map\Slice_Map"
+        # dirPath = r"Test_Report\Register Map\Slice_Map"
         # result = (next(os.walk(dirPath))[2])[0]
         # self.slice_map_path = f'{dirPath}/{result}'
         # load pll map sheet name
@@ -129,7 +129,7 @@ class MainFrame(gui.MainFrame):
         ip_num = self.ip_version_wx.GetSelection()
         self.spec_version = ip_list[ip_num]
 
-        self.xls_report_path = "Test Report\\Test Report EZ0005A.xlsx"
+        self.xls_report_path = "Test_Report\\Test Report EZ0005A.xlsx"
 
         self.info_window_wx.Selection = 1
         self.m_richText1.Clear()
@@ -555,7 +555,7 @@ class MainFrame(gui.MainFrame):
         self.info_window_wx.Selection = buffer
 
     def Register_init(self):
-        xls = pd.ExcelFile("Test Report\\Test Report EZ0005A.xls")
+        xls = pd.ExcelFile("Test_Report\\Test Report EZ0005A.xls")
 
         # load PLL Register Setup in excel
         df = xls.parse(self.sheet_num)
@@ -864,7 +864,7 @@ class MainFrame(gui.MainFrame):
         self.m_textCtrl9.Value = "Test Done"
 
         # # for tsmc demo use
-        # path = 'C:/Users\GUC\Desktop\D2D AutoTest V01.01_Beta20250328\\Test Report\\Test Report Log\Demo.txt'
+        # path = 'C:/Users\GUC\Desktop\D2D AutoTest V01.01_Beta20250328\\Test_Report\\Test_Report Log\Demo.txt'
         # textfile = open(path , "a+")
         # textfile.write(self.m_richText1.Value + i2c_log )
         # textfile.close()
@@ -874,7 +874,7 @@ class MainFrame(gui.MainFrame):
         # textfile.write('')
         #
         # f = open(
-        #     'Test Report\\Test Report Log/Demo.txt','r')
+        #     'Test_Report\\Test_Report Log/Demo.txt','r')
         # log = (f.read())
         # log_arr = log.split('\n')
         #
@@ -977,8 +977,8 @@ class MainFrame(gui.MainFrame):
                     + str(Loop_time)
                 )
 
-        self.save_log = "Test Report//Test Report Log/" + self.Log_Folder_path + ".txt"
-        self.log_path = "Test Report Log/" + self.Log_Folder_path + ".txt"
+        self.save_log = "Test_Report//Test_Report Log/" + self.Log_Folder_path + ".txt"
+        self.log_path = "Test_Report Log/" + self.Log_Folder_path + ".txt"
         self.graph_info = f"{self.TestItem_full} {self.chip_version} {self.Temp_now}Degree C {self.TestDataRate}Gb/s {self.Chip_Mode}"
 
         # save all slice eye width
@@ -2022,7 +2022,7 @@ class MainFrame(gui.MainFrame):
         else:
             self.meter_info_wx.Label = "Press Check VISA Bus"
 
-    """Test Report"""
+    """Test_Report"""
 
     def xlsx_Report(self, **kargs):
         if self.Thermal_die_en.Value == True:
@@ -2259,7 +2259,7 @@ class MainFrame(gui.MainFrame):
                 else:
                     if D == 0:
                         Hyperlink_path = (
-                            "Test Report Log/" + self.Log_Folder_path + ".txt"
+                            "Test_Report Log/" + self.Log_Folder_path + ".txt"
                         )
                         Select_sheet.cell(
                             row=Start_row_Num + n, column=col + D
@@ -2518,7 +2518,7 @@ class MainFrame(gui.MainFrame):
 
         path = os.getcwd() + "//TestTools//TestTools_GUI.png"
         bg.save(path)
-        path = "Test Report/" + ((self.log_path).split("txt"))[0] + "png"
+        path = "Test_Report/" + ((self.log_path).split("txt"))[0] + "png"
         bg.save(path)
 
     """eye scan"""

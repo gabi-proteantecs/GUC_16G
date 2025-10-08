@@ -43,7 +43,7 @@ class D2D_Subprogram:
         #         else:
         #             pass
         # print(RW_row_datalog)
-        # f = open(os.getcwd() + '//Test Report Log(EY0012A)/Register_Fille.def', 'w+')
+        # f = open(os.getcwd() + '//Test_Report Log(EY0012A)/Register_Fille.def', 'w+')
         # info =  '; ==============================================================================\n'+\
         #         '; Description: \n'+\
         #         ';	Each register to be written must obey the following format ....\n'+\
@@ -826,7 +826,7 @@ class D2D_Subprogram:
         return result
 
     def xls_write_register(self, sheet_name, Test_Result):
-        excel_path = "Test Report\\Test Report.xlsx"
+        excel_path = "Test_Report\\Test_Report.xlsx"
 
         Excel_Path = load_workbook(filename=excel_path)
         Select_sheet = Excel_Path[sheet_name]
@@ -873,7 +873,7 @@ class D2D_Subprogram:
         col = kargs.get("col", "NA")
         Hyperlink_path = kargs.get("Hyperlink_path", "NA")
 
-        excel_path = "Test Report\\Test Report.xlsx"
+        excel_path = "Test_Report\\Test_Report.xlsx"
         sheet_name = "Test Result"
 
         Excel_Path = load_workbook(filename=excel_path)
@@ -898,7 +898,7 @@ class D2D_Subprogram:
         Die1_8s_H = kargs.get("Die1_8s_H", 0)
         Die2_8s_H = kargs.get("Die2_8s_H", 0)
         Die3_8s_H = kargs.get("Die3_8s_H", 0)
-        excel_path = "Test Report\\Test Report.xlsx"
+        excel_path = "Test_Report\\Test_Report.xlsx"
 
         "close excel.exe"
         command = "taskkill /f /t /im EXCEL.exe"
@@ -977,7 +977,7 @@ class D2D_Subprogram:
     def xls_write_result_Others_VCO_EY0013A(self, **kargs):
         Test_Result = kargs.get("Test_Result", "Test Result")
 
-        excel_path = "Test Report(EY0012A).xlsx"
+        excel_path = "Test_Report(EY0012A).xlsx"
         sheet_name = "Others_VCO_EY0013A"
 
         "close excel.exe"

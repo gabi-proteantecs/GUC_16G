@@ -32,11 +32,11 @@ class Graph:
         doc.add_paragraph().add_run(
             "Table X.X.X : " + Intreface_name + TestFunction_val + "\n\n"
         ).bold = True
-        doc.save(r"Test Report.docx")
+        doc.save(r"Test_Report.docx")
 
     def Word_head(self):
         time.sleep(0.2)
-        doc = Document(r"Test Report.docx")
+        doc = Document(r"Test_Report.docx")
         # time.sleep(0.1)
         doc.styles["Normal"].font.name = "Arial"
         doc.styles["Normal"]._element.rPr.rFonts.set(qn("w:eastAsia"), "Arial")
@@ -47,12 +47,12 @@ class Graph:
         doc.add_paragraph().add_run(
             "Table X.X.X : " + Intreface_name + TestFunction_val + "\n\n"
         ).bold = True
-        doc.save(r"Test Report.docx")
+        doc.save(r"Test_Report.docx")
 
     def Word_table(self, num):
         # Edit word report table
         time.sleep(0.2)
-        doc = Document(r"Test Report.docx")
+        doc = Document(r"Test_Report.docx")
         # time.sleep(0.1)
 
         Func_Num = num
@@ -195,7 +195,7 @@ class Graph:
                                     table.cell(row + 1, col + 1).paragraphs[0].add_run(
                                         my_array_val
                                     )  # table.cell(row, cols) Start write test value
-                                    doc.save(r"Test Report.docx")
+                                    doc.save(r"Test_Report.docx")
                     except Exception:
                         break
 
@@ -222,11 +222,11 @@ class Graph:
                 table.rows[r].height = Pt(15)
 
         table.rows[0].height = Pt(40)
-        doc.save(r"Test Report.docx")
+        doc.save(r"Test_Report.docx")
 
     def Word_picture(self):
         time.sleep(0.2)
-        doc = Document(r"Test Report.docx")
+        doc = Document(r"Test_Report.docx")
         # time.sleep(0.1)
         section = doc.sections[0]
         section.left_margin = Cm(1.27)
@@ -255,20 +255,20 @@ class Graph:
 
         doc.add_page_break()
 
-        doc.save(r"Test Report.docx")
+        doc.save(r"Test_Report.docx")
 
     def Word_new_line(self, line_num):
         time.sleep(0.2)
-        doc = Document(r"Test Report.docx")
+        doc = Document(r"Test_Report.docx")
         # time.sleep(0.1)
         for i in range(line_num):
             # print(line_num)
             doc.add_paragraph("")
-        doc.save(r"Test Report.docx")
+        doc.save(r"Test_Report.docx")
 
     def Word_DeleteRow(self):
         for s in range(300):
-            doc = Document(r"Test Report.docx")
+            doc = Document(r"Test_Report.docx")
             try:
                 table = doc.tables[s]
                 for a in range(10):
@@ -278,7 +278,7 @@ class Graph:
                             if my_list == "":
                                 row2 = table.rows[i]
                                 row2._element.getparent().remove(row2._element)
-                                doc.save(r"Test Report.docx")
+                                doc.save(r"Test_Report.docx")
                             else:
                                 pass
                         except Exception:
@@ -288,7 +288,7 @@ class Graph:
 
     def Word_next_page(self):
         time.sleep(0.2)
-        doc = Document(r"Test Report.docx")
+        doc = Document(r"Test_Report.docx")
         # time.sleep(0.1)
         doc.add_page_break()
 
@@ -327,7 +327,7 @@ class Graph:
         xl.Visible = True  # otherwise excel is hidden
 
         # newest excel does not accept forward slash in path
-        wb = xl.Workbooks.Open("\\Test Report(EY0012A).xlsx")
+        wb = xl.Workbooks.Open("\\Test_Report(EY0012A).xlsx")
         wb.Close()
         xl.Quit()
 
@@ -349,7 +349,7 @@ class Graph:
                 f.write("")
                 f.close()
 
-            wb = openpyxl.load_workbook("Test Report\\Test Report.xlsx")
+            wb = openpyxl.load_workbook("Test_Report\\Test_Report.xlsx")
             sh = wb["IPXACT"]
 
             # check excel register row number
@@ -1294,7 +1294,7 @@ class Graph:
         Graph_ScaleSize = 15
 
         time.sleep(0.2)
-        doc = Document(r"Test Report.docx")
+        doc = Document(r"Test_Report.docx")
         # time.sleep(0.1)
         tables = doc.tables
         # print(table_num)
@@ -1944,10 +1944,10 @@ class Graph:
 
         # Test_Report_Log.txt
         # Graph_File_Name: Test
-        # C:\Users\Vince\Desktop\Python\\Test Report\\Test Waveform\Slew_Reg = 00.txt
-        # C:\Users\Vince\Desktop\Python\\Test Report\\Test Waveform\Slew_Reg = 01.txt
-        # C:\Users\Vince\Desktop\Python\\Test Report\\Test Waveform\Slew_Reg = 02.txt
-        # C:\Users\Vince\Desktop\Python\\Test Report\\Test Waveform\Slew_Reg = 03.txt
+        # C:\Users\Vince\Desktop\Python\\Test_Report\\Test Waveform\Slew_Reg = 00.txt
+        # C:\Users\Vince\Desktop\Python\\Test_Report\\Test Waveform\Slew_Reg = 01.txt
+        # C:\Users\Vince\Desktop\Python\\Test_Report\\Test Waveform\Slew_Reg = 02.txt
+        # C:\Users\Vince\Desktop\Python\\Test_Report\\Test Waveform\Slew_Reg = 03.txt
 
         fig = plt.figure()
         ax = fig.add_axes([0.25, 0.25, 0.5, 0.5])  # Graph picture position and size
