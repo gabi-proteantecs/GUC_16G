@@ -1,0 +1,195 @@
+{
+	"i2c_project_speed_mode_test": [0, 0],
+
+	"EZ0005A_D2D": {
+		"//": " 0 : Corner_Version_wx_json",
+		"Corner_Version_wx_json" :
+				[
+				"TT",
+				"FF",
+				"SS"
+				],
+
+		"//": " 1 : Function_select_wx_json",
+		"Function_select_wx_json" :
+				[
+					"AutoTest"
+				],
+
+
+
+		"auto_bist" : false,
+		"option" 	: true,
+		"instrument": false,
+		"power":
+				[
+				"OFF",
+				"OnBoard LDO",
+				"OnBoard PMIC No Sense",
+				"OnBoard PMIC",
+				"Keysight_E36233A",
+				"Keysight_E3631xA",
+				"Keysight_E3631xA_DataLog_Sense",
+				"Keysight_E3631xA_DataLog_Sense_REXT_M8",
+				"Keysight_E36233A_VDDC_REXT_AVDD",
+				"Keysight_E36233A_VDDC_E3631xA_AVDD_12_DataLog_Sense_REXT_M8",
+				"Keysight_E36233A_VDDC_AVDD_Merge_E3631xA_12_DataLog_Sense_REXT_M8"
+				],
+		"instrument_visa" : 
+				[
+				"TCPIP0::192.168.1.1::inst0::INSTR",
+				"USB0::0x2A8D::0x3302::MY59001241::0::INSTR",
+				"USB0::0x2A8D::0x1202::MY59001046::0::INSTR",
+				"USB0::0x2A8D::0x1202::MY59001046::0::INSTR",
+				"GPIB0::10::INSTR",
+				"USB0::0x2A8D::0x1301::MY57223676::0::INSTR",
+				"USB0::0x2A8D::0x1401::MY57226285::0::INSTR",
+				"USB0::0x2A8D::0x0301::MY59006168::0::INSTR",
+				"USB0::0x0957::0x0A07::MY48003395::0::INSTR",
+				"USB0::0x05E6::0x6500::04532827::0::INSTR",
+				"GPIB0::7::INSTR",
+				"USB0::0x05E6::0x6500::04516724::0::INSTR",
+				"USB0::0x05FF::0x1023::4205N20792::0::INSTR"
+				],
+		"instrument_DCV" : 
+				[
+				"E3631xA,0.75,1.2,1.2 ",
+				"E36233A,0.75,1.2"
+				],
+		"instrument_DCAL" : 
+				[
+				"E3631xA,10,2,2",
+				"E36233A,20,20"
+				],
+		"TP_use": false,
+		"ini_with_rst": false
+	},
+	
+	"EZA001A_D2D": {
+		"//": " 0 : Corner_Version_wx_json",
+		"Corner_Version_wx_json" :
+				[
+				"TT",
+				"FF",
+				"SS"
+				],
+
+		"//": " 1 : Function_select_wx_json",
+		"Function_select_wx_json" :
+				[
+					"AutoTest"
+				],
+
+
+
+		"auto_bist" : false,
+		"option" 	: true,
+		"instrument": false,
+		"power":
+				[
+				"OFF",
+				"OnBoard LDO",
+				"OnBoard PMIC No Sense",
+				"OnBoard PMIC",
+				"Keysight_E36233A",
+				"Keysight_E3631xA",
+				"Keysight_E3631xA_DataLog_Sense",
+				"Keysight_E3631xA_DataLog_Sense_REXT_M8",
+				"Keysight_E36233A_VDDC_REXT_AVDD",
+				"Keysight_E36233A_VDDC_E3631xA_AVDD_12_DataLog_Sense_REXT_M8",
+				"Keysight_E36233A_VDDC_AVDD_Merge_E3631xA_12_DataLog_Sense_REXT_M8"
+				],
+		"instrument_visa" : 
+				[
+				"TCPIP0::192.168.1.1::inst0::INSTR",
+				"USB0::0x2A8D::0x3302::MY59001241::0::INSTR",
+				"USB0::0x2A8D::0x1202::MY59001046::0::INSTR",
+				"USB0::0x2A8D::0x1202::MY59001046::0::INSTR",
+				"GPIB0::10::INSTR",
+				"USB0::0x2A8D::0x1301::MY57223676::0::INSTR",
+				"USB0::0x2A8D::0x1401::MY57226285::0::INSTR",
+				"USB0::0x2A8D::0x0301::MY59006168::0::INSTR",
+				"USB0::0x0957::0x0A07::MY48003395::0::INSTR",
+				"USB0::0x05E6::0x6500::04532827::0::INSTR",
+				"GPIB0::7::INSTR",
+				"USB0::0x05E6::0x6500::04516724::0::INSTR",
+				"USB0::0x05FF::0x1023::4205N20792::0::INSTR"
+				],
+		"instrument_DCV" : 
+				[
+				"E3631xA,0.75,1.2,1.2 ",
+				"E36233A,0.75,1.2"
+				],
+		"instrument_DCAL" : 
+				[
+				"E3631xA,10,2,2",
+				"E36233A,20,20"
+				],
+		"TP_use": false,
+		"ini_with_rst": false
+	},
+	"Others": {
+		"test" : [
+				"===  Training  ===",
+				"hardware_training",
+				"hardware_training_x_mode",
+				"hardware_training_0xfffffff",
+				"software_training_by_PMAD",
+				"software_training_by_PCS",
+				"manual_training",
+				"",
+				"===  Loopback  ===",
+				"near_loopback",
+				"far_loopback",
+				"",
+				"===  BIST  ===",
+				"pmad_bist",
+				"pcs_bist",
+				"pcs_bist_x_mode",
+				"function_bist",
+				"",
+				"===  Power  ===",
+				"power_consumption",
+				"power_consumption_dbi",
+				"power_noise_immunity",
+				"power_on",
+				"power_off",
+				"power_current",
+				"",
+				"===  Others  ===",
+				"efuse_i2c",
+				"i2c_scan",
+				"cpm_scan",
+				"vmin_nlb",
+				"vmin_pcs",
+				"ds_shmoo",
+				"vref_shmoo",
+				"update_calibration",
+				"flyover_reg",
+				"lane_repair",
+				"test_1",
+				"test_2",
+				"test_3"
+		  		],
+		"auto_bist" : false,
+		"option" 	: true,
+		"instrument": false,
+		"mode" : [
+				"M8_mode",
+				"M4_mode",
+				"M48_mode"
+				],
+		"process": [
+				"TT_1E",
+				"FF_2E",
+				"SS_3E",
+				"FS_4E",
+				"SF_5E",
+				"TT-FS-SF-SS_6E",
+				"FS-SS-TT-SF_7E",
+				"SS-SF-FS-TT_8E",
+				"SF-TT-SS-FS_9E"
+				]
+
+	}
+}

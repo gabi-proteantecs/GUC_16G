@@ -1,0 +1,64 @@
+
+']
+']
+ PI Step=33 / 0 to 127
+S3_mode_Die0_Slice0_vref=0x28_pi step33=1
+3_mode_Die0_Slice0_Vref=0x28_pi step33_Lane63
+S3_mode_Die1_Slice3_vref=0x28_pi step33=0
+3_mode_Die1_Slice3_Vref=0x28_pi step33_Lane63
+
+']
+']
+ PI Step=34 / 0 to 127
+S3_mode_Die0_Slice0_vref=0x28_pi step34=1
+3_mode_Die0_Slice0_Vref=0x28_pi step34_Lane63
+S3_mode_Die1_Slice3_vref=0x28_pi step34=1
+3_mode_Die1_Slice3_Vref=0x28_pi step34_Lane63
+
+']
+']
+ PI Step=35 / 0 to 127
+S3_mode_Die0_Slice0_vref=0x28_pi step35=1
+3_mode_Die0_Slice0_Vref=0x28_pi step35_Lane63
+S3_mode_Die1_Slice3_vref=0x28_pi step35=1
+3_mode_Die1_Slice3_Vref=0x28_pi step35_Lane63
+
+']
+']
+ PI Step=36 / 0 to 127
+S3_mode_Die0_Slice0_vref=0x28_pi step36=1
+3_mode_Die0_Slice0_Vref=0x28_pi step36_Lane63
+S3_mode_Die1_Slice3_vref=0x28_pi step36=1
+3_mode_Die1_Slice3_Vref=0x28_pi step36_Lane63
+
+']
+']
+ PI Step=37 / 0 to 127
+S3_mode_Die0_Slice0_vref=0x28_pi step37=1
+3_mode_Die0_Slice0_Vref=0x28_pi step37_Lane63
+S3_mode_Die1_Slice3_vref=0x28_pi step37=1
+3_mode_Die1_Slice3_Vref=0x28_pi step37_Lane63
+
+']
+']
+ PI Step=38 / 0 to 127
+S3_mode_Die0_Slice0_vref=0x28_pi step38=1
+3_mode_Die0_Slice0_Vref=0x28_pi step38_Lane63
+S3_mode_Die1_Slice3_vref=0x28_pi step38=1
+3_mode_Die1_Slice3_Vref=0x28_pi step38_Lane63
+
+']
+']
+ PI Step=39 / 0 to 127
+S3_mode_Die0_Slice0_vref=0x28_pi step39=1
+3_mode_Die0_Slice0_Vref=0x28_pi step39_Lane63
+S3_mode_Die1_Slice3_vref=0x28_pi step39=1
+3_mode_Die1_Slice3_Vref=0x28_pi step39_Lane63
+
+']
+']
+ PI Step=14 / 0 to 127
+S3_mode_Die0_Slice0_vref=0x27_pi step14=1
+3_mode_Die0_Slice0_Vref=0x27_pi step14_Lane63
+S3_mode_Die1_Slice3_vref=0x27_pi step14=1
+3_mode_Die1_Slice3_Vref=0x27_pi step14_Lane63

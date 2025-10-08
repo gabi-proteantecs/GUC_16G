@@ -1,0 +1,11 @@
+
+
+
+< Register Information and sequence >
+< Code > I2C write : slave=0x2 , offset=0x02 , s_bit=7, b_len=1, (W) value=0x01
+< Code > I2C write : slave=0x3 , offset=0x02 , s_bit=7, b_len=1, (W) value=0x01
+< Code > I2C write : slave=0x2 , offset=0x02 , s_bit=7, b_len=1, (W) value=0x01
+< Code > I2C write : slave=0x3 , offset=0x02 , s_bit=7, b_len=1, (W) value=0x01
+< Code > I2C write : slave=0x2 , offset=0x02 , s_bit=7, b_len=1, (W) value=0x01
+< Code > I2C write : slave=0x3 , offset=0x02 , s_bit=7, b_len=1, (W) value=0x01
+[Sequence] Check PLL Status
