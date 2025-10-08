@@ -139,7 +139,7 @@ class MainFrame(gui.MainFrame):
         )
 
         try:
-            f = open("TestTools\project.json", "r")
+            f = open("TestTools\\project.json", "r")
             json_data = f.read()
             self.project_json = json.loads(json_data)
 
@@ -2555,7 +2555,7 @@ class MainFrame(gui.MainFrame):
                     self.Step_count.Range = 1
                     self.m_textCtrl9.Value = f"Test Cycle {w} (Without Limits) "
                     if w == 0:
-                        os.popen("TestTools\event")
+                        os.popen("TestTools\\event")
                     # print(w, flush=True)
 
                     self.HW_Training_init()
@@ -2587,7 +2587,7 @@ class MainFrame(gui.MainFrame):
                     self.Step_count.Range = scan_num
                     self.m_textCtrl9.Value = f"Test Cycle {s} of {scan_num} "
                     if s == 0:
-                        os.popen("TestTools\event")
+                        os.popen("TestTools\\event")
                     # print(w, flush=True)
 
                     self.HW_Training_init()

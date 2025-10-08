@@ -717,7 +717,7 @@ class RemoteProcessTestCase(PsutilTestCase):
 
         # XXX: a different and probably more stable approach might be to access
         # the registry but accessing 64 bit paths from a 32 bit process
-        for filename in glob.glob(r"C:\Python*\python.exe"):
+        for filename in glob.glob(r"C:\Python*\\python.exe"):
             proc = subprocess.Popen(
                 args=[filename, "-c", code],
                 stdout=subprocess.PIPE,
