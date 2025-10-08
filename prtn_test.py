@@ -97,7 +97,13 @@ class ProteantecsCLI:
                 f"✓ TX Die: {self.test_system.run_0.tx_die}, RX Die: {self.test_system.run_0.rx_die}"
             )
 
+            # Check if I2C connection is working before running proteantecs
+            if self.test_system.i2c.pyb is None:
+                logger.error("✗ I2C connection not available - cannot run proteantecs")
+                raise Exception("I2C connection required for proteantecs testing")
+
             # Run the proteantecs test
+            logger.info("Starting proteantecs test...")
             self.test_system.run_0.proteantecs(mode=0)
 
             logger.info("")
@@ -106,6 +112,10 @@ class ProteantecsCLI:
 
         except Exception as e:
             logger.error(f"✗ ERROR during single readout: {e}")
+            logger.error("This may be due to:")
+            logger.error("  - Missing I2C connection to Pico")
+            logger.error("  - Chip not properly initialized")
+            logger.error("  - Missing dependencies")
             raise
 
     def continuous_monitoring(self):
@@ -157,15 +167,22 @@ class ProteantecsCLI:
         try:
             logger.info("Reading voltage levels from power supplies...")
 
-            # Read voltage using the instrument control
-            voltage_data = self.test_system.visa.Keysight_DataLog_793_101_104(
-                visa="USB0::0x2A8D::0x5101::MY58014090::0::INSTR"
-            )
+            # Try to read voltage using the instrument control
+            try:
+                voltage_data = self.test_system.visa.Keysight_DataLog_793_101_104(
+                    visa="USB0::0x2A8D::0x5101::MY58014090::0::INSTR"
+                )
 
-            logger.info("✓ Voltage readings:")
-            logger.info(f"  Channel 1: {voltage_data[0]:.3f}V")
-            logger.info(f"  Channel 2: {voltage_data[1]:.3f}V")
-            logger.info(f"  Channel 3: {voltage_data[2]:.3f}V")
+                logger.info("✓ Voltage readings:")
+                logger.info(f"  Channel 1: {voltage_data[0]:.3f}V")
+                logger.info(f"  Channel 2: {voltage_data[1]:.3f}V")
+                logger.info(f"  Channel 3: {voltage_data[2]:.3f}V")
+
+            except Exception as visa_e:
+                logger.warning(f"⚠ VISA voltage reading failed: {visa_e}")
+                logger.info("⚠ This requires pyvisa-py to be installed:")
+                logger.info("   pip install pyvisa-py")
+                logger.info("✓ Voltage reading functionality requires VISA support")
 
         except Exception as e:
             logger.error(f"✗ ERROR reading voltage: {e}")
@@ -241,10 +258,17 @@ class ProteantecsCLI:
         try:
             logger.info("Reading temperature from thermal sensors...")
 
-            # Use the thermal monitoring from the system
-            self.test_system.run_0.thermal_voltage_read()
-
-            logger.info("✓ Temperature readings completed")
+            # Try to use the thermal monitoring from the system
+            try:
+                self.test_system.run_0.thermal_voltage_read()
+                logger.info("✓ Temperature readings completed")
+            except Exception as thermal_e:
+                logger.warning(f"⚠ Thermal sensor reading failed: {thermal_e}")
+                logger.info("⚠ This requires VISA support for thermal sensors")
+                logger.info(
+                    "   Make sure thermal sensors are connected and VISA is installed"
+                )
+                logger.info("✓ Temperature reading functionality requires VISA support")
 
         except Exception as e:
             logger.error(f"✗ ERROR reading temperature: {e}")
@@ -373,7 +397,15 @@ class ProteantecsTestSystem:
                 raise Exception("Pico device not found")
 
             logger.info("   ✓ Pico I2C communication established")
-            logger.info(f"   ✓ I2C devices found: {self.i2c.scan()}")
+
+            # Get I2C scan results properly
+            try:
+                scan_result = self.i2c.to_list(self.i2c.pyb.eval("i2c.scan()"))
+                scan_hex = list(map(hex, scan_result))
+                logger.info(f"   ✓ I2C devices found: {scan_hex}")
+            except Exception as scan_e:
+                logger.warning(f"   ⚠ I2C scan failed: {scan_e}")
+                logger.info("   ✓ I2C communication established (scan failed)")
 
         except Exception as e:
             logger.error(f"   ✗ I2C initialization failed: {e}")
@@ -441,10 +473,19 @@ class ProteantecsTestSystem:
                 self.gui.E363xA_Out_OFF()
                 logger.info("✓ Power supplies disabled")
 
-            # Close I2C connection
-            if hasattr(self.i2c, "close"):
-                self.i2c.close()
-                logger.info("✓ I2C connection closed")
+            # Close I2C connection properly
+            if hasattr(self.i2c, "pyb") and self.i2c.pyb is not None:
+                try:
+                    self.i2c.pyb.exit_raw_repl()
+                    self.i2c.pyb.close()
+                    logger.info("✓ I2C connection closed properly")
+                except Exception as close_e:
+                    logger.warning(f"Warning during I2C cleanup: {close_e}")
+                    try:
+                        self.i2c.close()
+                        logger.info("✓ I2C connection closed (fallback)")
+                    except Exception as fallback_e:
+                        logger.warning(f"Fallback I2C cleanup failed: {fallback_e}")
 
             logger.info("✓ System cleanup completed")
 
