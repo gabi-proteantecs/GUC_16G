@@ -1,0 +1,1744 @@
+{
+    "fcc_blocks": [
+        {
+            "fcc_header": {
+                "magic_number": 182,
+                "readout_structure_version": 1,
+                "customer_id": 3,
+                "proteus_ip_revision": 121,
+                "proteus_ip_sub_revision": 0,
+                "project_id": 61480103,
+                "chip_id": 4294967298,
+                "fcc_id": 0
+            },
+            "payload": [
+                {
+                    "type": "ChipData_v1",
+                    "type_number": 12,
+                    "length": 24,
+                    "value": {
+                        "clock_division_ratio": 2,
+                        "system_clock_frequency": 50
+                    }
+                },
+                {
+                    "type": "Vendor_and_Project_id_v1_readout_v2",
+                    "type_number": 15,
+                    "length": 48,
+                    "value": {
+                        "vendor_id": 3,
+                        "vendor_project_id": 61480103
+                    }
+                },
+                {
+                    "type": "UnitHeader_v1",
+                    "type_number": 9,
+                    "length": 10,
+                    "value": {
+                        "unit_id": 3
+                    }
+                },
+                {
+                    "type": "TcaBoxHeader_v2",
+                    "type_number": 42,
+                    "length": 5,
+                    "value": {
+                        "tca_box_id": 0
+                    }
+                },
+                {
+                    "type": "TcaBox_v2_cfg",
+                    "type_number": 43,
+                    "length": 110,
+                    "value": {
+                        "data_valid": 1,
+                        "readout_types_to_read": 31,
+                        "stop_min_max_monitoring": 0,
+                        "io_sensor_avtivity_group": 0,
+                        "io_sensors_delayline_step_duration": 1,
+                        "io_sensors_meas1_delayline_min_boundary": 0,
+                        "io_sensors_meas1_delayline_max_boundary": 15,
+                        "io_sensors_meas1_ref_clk_selector": 0,
+                        "io_sensors_meas1_prev_clk_selector": 0,
+                        "io_sensors_meas1_delayline_base_delay": 30,
+                        "io_sensors_meas1_base_delay_bypass": 0,
+                        "io_sensors_meas1_fail_condition": 0,
+                        "io_sensors_meas1_part_of_measure": 1,
+                        "io_sensors_meas2_delayline_min_boundary": 0,
+                        "io_sensors_meas2_delayline_max_boundary": 15,
+                        "io_sensors_meas2_ref_clk_selector": 0,
+                        "io_sensors_meas2_prev_clk_selector": 3,
+                        "io_sensors_meas2_delayline_base_delay": 30,
+                        "io_sensors_meas2_base_delay_bypass": 1,
+                        "io_sensors_meas2_fail_condition": 1,
+                        "io_sensors_meas2_part_of_measure": 1,
+                        "qdca_activity_group": 0,
+                        "qdca_additional_delay": 0,
+                        "qdca_delayline_base_delay": 30,
+                        "qdca_delayline_step_duration": 0,
+                        "qdca_delayline_min_boundary": 0,
+                        "qdca_delayline_max_boundary": 15,
+                        "qdca_meas1_ref_clk_selector": 1,
+                        "qdca_meas1_prev_clk_selector": 0,
+                        "qdca_meas1_part_of_measure": 1,
+                        "qdca_meas2_ref_clk_selector": 2,
+                        "qdca_meas2_prev_clk_selector": 1,
+                        "qdca_meas2_part_of_measure": 1,
+                        "qdca_meas3_ref_clk_selector": 3,
+                        "qdca_meas3_prev_clk_selector": 2,
+                        "qdca_meas3_part_of_measure": 1,
+                        "qdca_meas4_ref_clk_selector": 0,
+                        "qdca_meas4_prev_clk_selector": 3,
+                        "qdca_meas4_part_of_measure": 1,
+                        "qdca_meas5_base_delay": 30,
+                        "qdca_meas5_variable_delay": 0,
+                        "qdca_meas5_end_meas_threshold": 3,
+                        "qdca_meas5_include_delayline_in_osc": 0,
+                        "qdca_meas5_part_of_measure": 1,
+                        "qdca_meas5_single_or_continuous_measurement": 0
+                    }
+                },
+                {
+                    "type": "TcaBox_v2_measurement1_full",
+                    "type_number": 44,
+                    "length": 2423,
+                    "value": {
+                        "data_valid": 1,
+                        "num_of_sensors": 71,
+                        "tca": [
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "TcaBox_v2_measurement2_full",
+                    "type_number": 46,
+                    "length": 2423,
+                    "value": {
+                        "data_valid": 1,
+                        "num_of_sensors": 71,
+                        "tca": [
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "TcaBox_v2_measurement3_to_measurement6_full",
+                    "type_number": 48,
+                    "length": 2865,
+                    "value": {
+                        "data_valid": 1,
+                        "num_of_sensors": 21,
+                        "tca": [
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 1
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 1
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 1
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 1
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 1
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 1
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 1
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 1
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 1
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 1
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            },
+                            {
+                                "max_val": 0,
+                                "min_val": 15,
+                                "sum_val": 0,
+                                "num_of_elements": 0,
+                                "status": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "TcaBox_v2_measurement7",
+                    "type_number": 50,
+                    "length": 44,
+                    "value": {
+                        "data_valid": 1,
+                        "qdca_osc_base_delay": 30,
+                        "qdca_osc_variable_delay": 0,
+                        "qdca_osc_end_meas_threshold": 3,
+                        "qdca_osc_include_delayline_in_osc": 0,
+                        "qdca_osc_part_of_measure": 1,
+                        "qdca_osc_single_or_continuous_measurement": 0,
+                        "qdca_osc_count": 2090,
+                        "qdca_window_count": 108
+                    }
+                },
+                {
+                    "type": "FillerTlv",
+                    "type_number": 11,
+                    "length": 18,
+                    "value": {
+                        "skip_bits": 262143
+                    }
+                }
+            ],
+            "crc": 1401651838
+        }
+    ]
+}
