@@ -98,7 +98,7 @@ class ProteantecsCLI:
             )
 
             # Check if I2C connection is working before running proteantecs
-            if self.test_system.i2c.pyb is None:
+            if not hasattr(self.test_system.phy_0, "i2c") or self.test_system.phy_0.i2c.pyb is None:
                 logger.error("✗ I2C connection not available - cannot run proteantecs")
                 raise Exception("I2C connection required for proteantecs testing")
 
@@ -397,7 +397,7 @@ class ProteantecsTestSystem:
                 raise Exception("Pico device not found")
 
             logger.info("   ✓ Pico I2C communication established")
-
+            
             # Get I2C scan results properly
             try:
                 scan_result = self.i2c.to_list(self.i2c.pyb.eval("i2c.scan()"))
@@ -406,6 +406,8 @@ class ProteantecsTestSystem:
             except Exception as scan_e:
                 logger.warning(f"   ⚠ I2C scan failed: {scan_e}")
                 logger.info("   ✓ I2C communication established (scan failed)")
+
+            logger.info("   ℹ Note: This connection will be closed when physical layer initializes")
 
         except Exception as e:
             logger.error(f"   ✗ I2C initialization failed: {e}")
@@ -438,8 +440,17 @@ class ProteantecsTestSystem:
         logger.info("Step 5: Initializing Physical Layer...")
 
         try:
-            # Initialize physical layer with correct parameters
-            self.phy_0 = Glink_phy(self.gui, self.i2c, self.jtag)
+            # Close our I2C connection first to avoid conflicts
+            if hasattr(self.i2c, "pyb") and self.i2c.pyb is not None:
+                try:
+                    self.i2c.pyb.exit_raw_repl()
+                    self.i2c.pyb.close()
+                    logger.info("   ✓ Closed initial I2C connection to avoid conflicts")
+                except Exception as close_e:
+                    logger.warning(f"   ⚠ Error closing initial I2C connection: {close_e}")
+
+            # Initialize physical layer - it will create its own Pico connection
+            self.phy_0 = Glink_phy(self.gui, None, self.jtag)
             logger.info("   ✓ Physical layer initialized")
             logger.info("   ✓ Register access methods ready")
 
@@ -473,19 +484,28 @@ class ProteantecsTestSystem:
                 self.gui.E363xA_Out_OFF()
                 logger.info("✓ Power supplies disabled")
 
-            # Close I2C connection properly
-            if hasattr(self.i2c, "pyb") and self.i2c.pyb is not None:
+            # Close physical layer I2C connection (this is the active one)
+            if hasattr(self.phy_0, "i2c") and hasattr(self.phy_0.i2c, "pyb") and self.phy_0.i2c.pyb is not None:
+                try:
+                    self.phy_0.i2c.pyb.exit_raw_repl()
+                    self.phy_0.i2c.pyb.close()
+                    logger.info("✓ Physical layer I2C connection closed properly")
+                except Exception as close_e:
+                    logger.warning(f"Warning during physical layer I2C cleanup: {close_e}")
+                    try:
+                        self.phy_0.i2c.close()
+                        logger.info("✓ Physical layer I2C connection closed (fallback)")
+                    except Exception as fallback_e:
+                        logger.warning(f"Fallback physical layer I2C cleanup failed: {fallback_e}")
+
+            # Also try to close the initial I2C connection if it still exists
+            if hasattr(self, "i2c") and hasattr(self.i2c, "pyb") and self.i2c.pyb is not None:
                 try:
                     self.i2c.pyb.exit_raw_repl()
                     self.i2c.pyb.close()
-                    logger.info("✓ I2C connection closed properly")
+                    logger.info("✓ Initial I2C connection closed")
                 except Exception as close_e:
-                    logger.warning(f"Warning during I2C cleanup: {close_e}")
-                    try:
-                        self.i2c.close()
-                        logger.info("✓ I2C connection closed (fallback)")
-                    except Exception as fallback_e:
-                        logger.warning(f"Fallback I2C cleanup failed: {fallback_e}")
+                    logger.warning(f"Warning during initial I2C cleanup: {close_e}")
 
             logger.info("✓ System cleanup completed")
 
