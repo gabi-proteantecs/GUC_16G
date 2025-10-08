@@ -1922,6 +1922,128 @@ class UCIe_2p5D:
         )
         sys.stdout.flush()
 
+    def proteantecs_single_readout(self, mode):
+        """
+        Single readout version of proteantecs for CLI tool
+        Runs 4 readouts per block (one for each EW configuration)
+        Total: 4 blocks × 4 EW configs = 16 readouts per die
+        """
+        self.prtn_offset = 0x40000
+        self.tca_inter_reg_addr = 0x0
+        self.expected_count = [31, 31, 31, 31, 31, 31, 31, 31, 13]
+        self.expected_wait = 0
+        self.prtn_fifo_read_address = 0x24
+        self.prtn_fifo_count_address = 0x28
+
+        block_idx_range = range(4)  # 4 blocks: S0, S1, S2, S3
+
+        # Single configuration for CLI tool
+        cfg = 0x1E  # Use first configuration
+        EW_range = [1, 2, 3, 4]  # 4 EW configurations
+        qdca_osc_bypass_cfg = [0, 0]  # Single QDCA configuration
+        num_of_iterations = 1  # Single iteration per configuration
+
+        top_id = 0
+
+        if mode == 0:
+            dies_and_group_range = [{"die": 0, "group": 2}, {"die": 1, "group": 2}]
+        elif mode == 1:
+            dies_and_group_range = [{"die": 1, "group": 1}, {"die": 2, "group": 2}]
+
+        for die_and_group in dies_and_group_range:
+            # set die and group
+            print("Working on: ", die_and_group)
+            self.die = die_and_group["die"]
+            self.slave = self.EHOST[die_and_group["die"]][die_and_group["group"]]
+            self.phy.die_sel(die=self.die)
+            print("Enable TCA clock to Block Controllers \n")
+            self.prtn_tca_clk_en()
+            print("After enabling TCA clock to Block Controllers \n")
+            self.prtn_global_config()
+
+            # Enable read/measure for all blocks
+            for block_idx in block_idx_range:
+                self.prtn_tca_read_measure_en(block_idx)
+
+            # Run single readout for each EW configuration
+            for EW in EW_range:
+                print(f"Running EW configuration {EW}...")
+
+                # Configure all blocks for this EW
+                for block_idx in block_idx_range:
+                    self.prtn_config_block(block_idx, cfg, EW)
+                    self.prtn_qdca_osc_cfg(
+                        block_idx=block_idx,
+                        include_dly_line=qdca_osc_bypass_cfg[0],
+                        base_delay=cfg,
+                        fine_delay=qdca_osc_bypass_cfg[1],
+                    )
+
+                # Single iteration for this EW configuration
+                for idx_iter in range(num_of_iterations):
+                    self.prtn_reg_write(0x34, 0x1)  # broadcast_state
+                    val = self.prtn_reg_read(0x6C)  # became_busy
+                    print("Became_busy before Start : ", val)
+
+                    # measure command
+                    self.prtn_start_measure()
+                    self.phy.TX_PCS_BIST_RUN(
+                        self.tx_die,
+                        self.tx_group,
+                        slice=self.tx_slice,
+                        setv="0x1",
+                    )
+                    self.phy.TX_PCS_BIST_RUN(
+                        self.rx_die,
+                        self.rx_group,
+                        slice=self.rx_slice,
+                        setv="0x1",
+                    )
+                    self.phy.die_sel(die=self.die)
+
+                    # Stop measurement for all blocks
+                    for block_idx in block_idx_range:
+                        self.prtn_stop_measure(block_idx)
+                    self.prtn_reg_write(0x34, 0x1)  # broadcast_state
+
+                    # Read all blocks one by one
+                    for block_idx in block_idx_range:
+                        naknik = self.prtn_read_data(
+                            self.expected_count, self.expected_wait, block_idx
+                        )
+
+                        self.prtn_info(
+                            "TCA_Naknik_params:die,slave,top_id,block_idx,cfg,EW,idx_iter,readout"
+                        )
+                        self.prtn_info(
+                            "TCA_Naknik_output:"
+                            + str(self.die)
+                            + ","
+                            + str(self.slave)
+                            + ","
+                            + str(top_id)
+                            + ","
+                            + str(block_idx)
+                            + ","
+                            + str(cfg)
+                            + ","
+                            + str(EW)
+                            + ","
+                            + str(idx_iter)
+                            + ","
+                            + naknik
+                        )
+
+                        val = int(self.prtn_reg_read(0x5C), 16)
+                        if (val & 0x00000001) != 0x000000001:
+                            self.prtn_error("Readout not ended")
+                        self.prtn_reg_write(0x8, 5)
+                        self.prtn_reg_write(0x8, 1)
+
+                print(f"Completed EW configuration {EW}")
+
+            print(f"Completed all EW configurations for die {self.die}")
+
     def proteantecs(self, mode):
         self.prtn_offset = 0x40000
         self.tca_inter_reg_addr = 0x0

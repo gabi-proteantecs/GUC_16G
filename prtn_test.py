@@ -77,7 +77,7 @@ class ProteantecsCLI:
             logger.info("System ready!")
 
     def single_readout(self):
-        """Perform single TCA readout (4 times per configuration type)"""
+        """Perform single TCA readout (4 EW configs × 4 blocks = 16 readouts per die)"""
         logger.info("=" * 80)
         logger.info("SINGLE TCA READOUT")
         logger.info("=" * 80)
@@ -87,7 +87,9 @@ class ProteantecsCLI:
         try:
             # Run proteantecs test for M4_D0V_D1V_mode (as seen in the log)
             logger.info("Running TCA readout for M4_D0V_D1V_mode...")
-            logger.info("This will perform 4 readouts per TCA configuration type")
+            logger.info(
+                "This will perform 4 EW configurations × 4 blocks = 16 readouts per die"
+            )
             logger.info("")
 
             # Set up the test mode
@@ -98,17 +100,21 @@ class ProteantecsCLI:
             )
 
             # Check if I2C connection is working before running proteantecs
-            if not hasattr(self.test_system.phy_0, "i2c") or self.test_system.phy_0.i2c.pyb is None:
+            if (
+                not hasattr(self.test_system.phy_0, "i2c")
+                or self.test_system.phy_0.i2c.pyb is None
+            ):
                 logger.error("✗ I2C connection not available - cannot run proteantecs")
                 raise Exception("I2C connection required for proteantecs testing")
 
-            # Run the proteantecs test
+            # Run the proteantecs test with single readout mode
             logger.info("Starting proteantecs test...")
-            self.test_system.run_0.proteantecs(mode=0)
+            self.test_system.run_0.proteantecs_single_readout(mode=0)
 
             logger.info("")
             logger.info("✓ Single TCA readout completed successfully!")
             logger.info("✓ Check the output above for TCA_Naknik_output data")
+            logger.info("✓ Total readouts: 16 per die (4 EW configs × 4 blocks)")
 
         except Exception as e:
             logger.error(f"✗ ERROR during single readout: {e}")
@@ -397,7 +403,7 @@ class ProteantecsTestSystem:
                 raise Exception("Pico device not found")
 
             logger.info("   ✓ Pico I2C communication established")
-            
+
             # Get I2C scan results properly
             try:
                 scan_result = self.i2c.to_list(self.i2c.pyb.eval("i2c.scan()"))
@@ -407,7 +413,9 @@ class ProteantecsTestSystem:
                 logger.warning(f"   ⚠ I2C scan failed: {scan_e}")
                 logger.info("   ✓ I2C communication established (scan failed)")
 
-            logger.info("   ℹ Note: This connection will be closed when physical layer initializes")
+            logger.info(
+                "   ℹ Note: This connection will be closed when physical layer initializes"
+            )
 
         except Exception as e:
             logger.error(f"   ✗ I2C initialization failed: {e}")
@@ -447,7 +455,9 @@ class ProteantecsTestSystem:
                     self.i2c.pyb.close()
                     logger.info("   ✓ Closed initial I2C connection to avoid conflicts")
                 except Exception as close_e:
-                    logger.warning(f"   ⚠ Error closing initial I2C connection: {close_e}")
+                    logger.warning(
+                        f"   ⚠ Error closing initial I2C connection: {close_e}"
+                    )
 
             # Initialize physical layer - it will create its own Pico connection
             self.phy_0 = Glink_phy(self.gui, None, self.jtag)
@@ -485,21 +495,33 @@ class ProteantecsTestSystem:
                 logger.info("✓ Power supplies disabled")
 
             # Close physical layer I2C connection (this is the active one)
-            if hasattr(self.phy_0, "i2c") and hasattr(self.phy_0.i2c, "pyb") and self.phy_0.i2c.pyb is not None:
+            if (
+                hasattr(self.phy_0, "i2c")
+                and hasattr(self.phy_0.i2c, "pyb")
+                and self.phy_0.i2c.pyb is not None
+            ):
                 try:
                     self.phy_0.i2c.pyb.exit_raw_repl()
                     self.phy_0.i2c.pyb.close()
                     logger.info("✓ Physical layer I2C connection closed properly")
                 except Exception as close_e:
-                    logger.warning(f"Warning during physical layer I2C cleanup: {close_e}")
+                    logger.warning(
+                        f"Warning during physical layer I2C cleanup: {close_e}"
+                    )
                     try:
                         self.phy_0.i2c.close()
                         logger.info("✓ Physical layer I2C connection closed (fallback)")
                     except Exception as fallback_e:
-                        logger.warning(f"Fallback physical layer I2C cleanup failed: {fallback_e}")
+                        logger.warning(
+                            f"Fallback physical layer I2C cleanup failed: {fallback_e}"
+                        )
 
             # Also try to close the initial I2C connection if it still exists
-            if hasattr(self, "i2c") and hasattr(self.i2c, "pyb") and self.i2c.pyb is not None:
+            if (
+                hasattr(self, "i2c")
+                and hasattr(self.i2c, "pyb")
+                and self.i2c.pyb is not None
+            ):
                 try:
                     self.i2c.pyb.exit_raw_repl()
                     self.i2c.pyb.close()
@@ -535,7 +557,7 @@ Examples:
     parser.add_argument(
         "--single",
         action="store_true",
-        help="Perform single TCA readout (4 times per config type)",
+        help="Perform single TCA readout (4 EW configs × 4 blocks = 16 readouts per die)",
     )
     parser.add_argument(
         "--continuous",
