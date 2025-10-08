@@ -860,7 +860,7 @@ class MainFrame(gui.MainFrame):
         # #     self.xlsx_log_link()
         #
         # # self.info_window_wx.Selection=0
-        # self.eye_graph_info_wx.SetBitmap(wx.Bitmap(u"TestTools/TestTools_GUI.png", wx.BITMAP_TYPE_ANY))
+        # self.eye_graph_info_wx.SetBitmap(wx.Bitmap(u"TestTools//TestTools_GUI.png", wx.BITMAP_TYPE_ANY))
         self.m_textCtrl9.Value = "Test Done"
 
         # # for tsmc demo use
@@ -914,7 +914,7 @@ class MainFrame(gui.MainFrame):
 
         self.info_window_wx.Selection = 1
         self.eye_graph_info_wx.SetBitmap(
-            wx.Bitmap("TestTools/TestTools_GUI.png", wx.BITMAP_TYPE_ANY)
+            wx.Bitmap("TestTools//TestTools_GUI.png", wx.BITMAP_TYPE_ANY)
         )
 
     def log_name(self):
@@ -977,7 +977,7 @@ class MainFrame(gui.MainFrame):
                     + str(Loop_time)
                 )
 
-        self.save_log = "Test Report/Test Report Log/" + self.Log_Folder_path + ".txt"
+        self.save_log = "Test Report//Test Report Log/" + self.Log_Folder_path + ".txt"
         self.log_path = "Test Report Log/" + self.Log_Folder_path + ".txt"
         self.graph_info = f"{self.TestItem_full} {self.chip_version} {self.Temp_now}Degree C {self.TestDataRate}Gb/s {self.Chip_Mode}"
 
@@ -2516,7 +2516,7 @@ class MainFrame(gui.MainFrame):
             x = (i - 1) // row_width  # 根據開啟的順序，決定 y 座標 ( // 為快速取整數 )
             bg.paste(img, (x * pic_width, y * pic_high))
 
-        path = os.getcwd() + "/TestTools/TestTools_GUI.png"
+        path = os.getcwd() + "//TestTools//TestTools_GUI.png"
         bg.save(path)
         path = "Test Report/" + ((self.log_path).split("txt"))[0] + "png"
         bg.save(path)

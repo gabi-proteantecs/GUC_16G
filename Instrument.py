@@ -43,7 +43,7 @@ class D2D_Subprogram:
         #         else:
         #             pass
         # print(RW_row_datalog)
-        # f = open(os.getcwd() + '/Test Report Log(EY0012A)/Register_Fille.def', 'w+')
+        # f = open(os.getcwd() + '//Test Report Log(EY0012A)/Register_Fille.def', 'w+')
         # info =  '; ==============================================================================\n'+\
         #         '; Description: \n'+\
         #         ';	Each register to be written must obey the following format ....\n'+\
