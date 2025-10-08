@@ -24,7 +24,7 @@ from PIL import Image, ImageDraw, ImageFont
 import Glink_phy
 import Glink_run
 import gui  # import the newly created GUI file by wxformbuilder
-import TestTools.pico_python_library.psutil as psutil
+import psutil
 import TestTools.pico_python_library.pyautogui as pyautogui
 from Instrument import D2D_Subprogram
 from Raspberry_Pico import *
