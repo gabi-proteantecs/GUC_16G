@@ -1772,7 +1772,9 @@ class UCIe_2p5D:
 
     def prtn_config_block(self, block_idx, base_delay, EW):
         tca_inter_reg_addr = 6
-        tca_inter_reg_data = (base_delay & 0x1F) << 3
+        tca_inter_reg_data = (
+            base_delay & 0x1F
+        ) << 3 | 0x2  # !!!!!!!! added the | 0x2 to try to enalbe measuer @@@@@!!!!
         self.prtn_tca_internal_reg_cfg(
             block_idx, tca_inter_reg_addr, tca_inter_reg_data
         )
