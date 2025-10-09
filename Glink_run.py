@@ -2001,6 +2001,8 @@ class UCIe_2p5D:
                     )
                     self.phy.die_sel(die=self.die)
 
+                    time.sleep(0.1)
+
                     # Stop measurement for all blocks
                     for block_idx in block_idx_range:
                         self.prtn_stop_measure(block_idx)
