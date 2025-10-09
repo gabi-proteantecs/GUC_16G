@@ -284,8 +284,8 @@ class ProteantecsCLI:
             logger.error(f"✗ ERROR reading temperature: {e}")
             logger.info("Make sure thermal sensors are connected")
 
-    def reset_system(self, reset_type="gpio"):
-        """Reset the system before running tests"""
+    def reset_system(self):
+        """Reset the system using soft reset"""
         logger.info("=" * 80)
         logger.info("SYSTEM RESET")
         logger.info("=" * 80)
@@ -293,26 +293,10 @@ class ProteantecsCLI:
         self._initialize_system()
 
         try:
-            if reset_type.lower() == "gpio":
-                logger.info("Performing GPIO Reset...")
-                self._gpio_reset()
-            elif reset_type.lower() == "power":
-                logger.info("Performing Power Cycle Reset...")
-                self._power_reset()
-            elif reset_type.lower() == "soft":
-                logger.info("Performing Soft Reset...")
-                self._soft_reset()
-            elif reset_type.lower() == "all":
-                logger.info("Performing Complete System Reset...")
-                self._gpio_reset()
-                time.sleep(1)
-                self._soft_reset()
-                time.sleep(1)
-                logger.info("✓ Complete system reset completed")
-            else:
-                logger.error(f"✗ Unknown reset type: {reset_type}")
-                logger.error("Available reset types: gpio, power, soft, all")
-                raise ValueError(f"Unknown reset type: {reset_type}")
+            logger.info("Performing Soft Reset...")
+            logger.info("   → Enabling APB access for all dies...")
+            self.test_system.phy_0.resetn(abp_en=1)
+            logger.info("   ✓ Soft reset completed")
 
             logger.info("")
             logger.info("✓ System reset completed successfully!")
@@ -322,83 +306,7 @@ class ProteantecsCLI:
             logger.error(f"✗ ERROR during system reset: {e}")
             logger.error("This may be due to:")
             logger.error("  - Missing I2C connection to Pico")
-            logger.error("  - Missing VISA instruments")
             logger.error("  - Hardware not properly connected")
-            raise
-
-    def _gpio_reset(self):
-        """Perform GPIO-based chip reset"""
-        logger.info("   → Executing GPIO reset sequence...")
-
-        try:
-            # GPIO reset sequence (pins 6, 7, 8)
-            logger.info("   → Resetting GPIO pins 6, 7, 8...")
-
-            # Pin 6 reset sequence
-            self.test_system.phy_0.pico_gpio_low(6, 1)
-            self.test_system.phy_0.pico_gpio_low(6, 0)
-            self.test_system.phy_0.pico_gpio_low(6, 1)
-
-            # Pin 7 reset sequence
-            self.test_system.phy_0.pico_gpio_low(7, 1)
-            self.test_system.phy_0.pico_gpio_low(7, 0)
-            self.test_system.phy_0.pico_gpio_low(7, 1)
-
-            # Pin 8 reset sequence
-            self.test_system.phy_0.pico_gpio_low(8, 1)
-            self.test_system.phy_0.pico_gpio_low(8, 0)
-            self.test_system.phy_0.pico_gpio_low(8, 1)
-
-            logger.info("   ✓ GPIO reset sequence completed")
-
-        except Exception as e:
-            logger.error(f"   ✗ GPIO reset failed: {e}")
-            raise
-
-    def _power_reset(self):
-        """Perform power cycle reset"""
-        logger.info("   → Executing power cycle reset...")
-
-        try:
-            # Power off
-            logger.info("   → Turning off power supplies...")
-            self.test_system.visa.E36233A_Out_OFF_RST()
-            logger.info("   ✓ Power supplies turned off")
-
-            # Wait for power to settle
-            logger.info("   → Waiting 2 seconds for power to settle...")
-            time.sleep(2)
-
-            # Power on
-            logger.info("   → Turning on power supplies...")
-            self.test_system.visa.E36233A_Out_ON_RST()
-            logger.info("   ✓ Power supplies turned on")
-
-            # Wait for power to stabilize
-            logger.info("   → Waiting 2 seconds for power to stabilize...")
-            time.sleep(2)
-
-            logger.info("   ✓ Power cycle reset completed")
-
-        except Exception as e:
-            logger.error(f"   ✗ Power reset failed: {e}")
-            logger.error(
-                "   ⚠ This requires VISA support and power supplies to be connected"
-            )
-            raise
-
-    def _soft_reset(self):
-        """Perform soft reset (register-based)"""
-        logger.info("   → Executing soft reset...")
-
-        try:
-            # Enable APB access for all dies and groups
-            logger.info("   → Enabling APB access for all dies...")
-            self.test_system.phy_0.resetn(abp_en=1)
-            logger.info("   ✓ Soft reset completed")
-
-        except Exception as e:
-            logger.error(f"   ✗ Soft reset failed: {e}")
             raise
 
     def run_all_functions(self):
@@ -490,13 +398,6 @@ class ProteantecsTestSystem:
 
                 # Power supply VISA addresses
                 self.E363xA_visa = type(
-                    "obj",
-                    (object,),
-                    {"Value": "USB0::0x2A8D::0x3302::MY59001241::0::INSTR"},
-                )()
-
-                # Power cycle VISA address
-                self.power_cycle_visa = type(
                     "obj",
                     (object,),
                     {"Value": "USB0::0x2A8D::0x3302::MY59001241::0::INSTR"},
@@ -670,18 +571,15 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python prtn_test.py --reset gpio               # GPIO reset
-  python prtn_test.py --reset power              # Power cycle reset
-  python prtn_test.py --reset soft               # Soft reset
-  python prtn_test.py --reset all                # Complete reset
-  python prtn_test.py --single                   # Single TCA readout
-  python prtn_test.py --continuous              # Continuous monitoring
-  python prtn_test.py --voltage                 # Read voltage
-  python prtn_test.py --voltage --set 1.2       # Set voltage to 1.2V
-  python prtn_test.py --frequency               # Read frequency
-  python prtn_test.py --frequency --set 16      # Set frequency to 16GHz
-  python prtn_test.py --temperature             # Read temperature
-  python prtn_test.py --all                    # All functions
+  python prtn_test.py --reset                   # Soft reset system
+  python prtn_test.py --single                 # Single TCA readout
+  python prtn_test.py --continuous            # Continuous monitoring
+  python prtn_test.py --voltage               # Read voltage
+  python prtn_test.py --voltage --set 1.2     # Set voltage to 1.2V
+  python prtn_test.py --frequency             # Read frequency
+  python prtn_test.py --frequency --set 16    # Set frequency to 16GHz
+  python prtn_test.py --temperature           # Read temperature
+  python prtn_test.py --all                  # All functions
         """,
     )
 
@@ -710,9 +608,8 @@ Examples:
     # Reset flags
     parser.add_argument(
         "--reset",
-        choices=["gpio", "power", "soft", "all"],
-        metavar="TYPE",
-        help="Reset system before running tests (gpio, power, soft, all)",
+        action="store_true",
+        help="Reset system using soft reset before running tests",
     )
 
     # Control flags
@@ -755,7 +652,7 @@ Examples:
 
         # Execute requested operations
         if args.reset:
-            cli.reset_system(args.reset)
+            cli.reset_system()
         elif args.all:
             cli.run_all_functions()
         elif args.single:
