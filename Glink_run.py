@@ -1740,11 +1740,11 @@ class UCIe_2p5D:
         )
         self.prtn_reg_write(0x48, config_data)  # command config
         self.prtn_info(
-            "Writing to TCA unit config_reg "
-            + str(unit_reg_addr)
-            + " val = "
-            + hex(config_data)
+            f"Writing to TCA unit: {block_idx}, config_reg: {hex(unit_reg_addr)}, data: {hex(data)}, val: {hex(config_data)}"
         )
+        #     + " val = "
+        #     + hex(config_data)
+        # )
 
     def prtn_tca_internal_reg_cfg(
         self, block_idx, tca_inter_reg_addr, tca_inter_reg_data
